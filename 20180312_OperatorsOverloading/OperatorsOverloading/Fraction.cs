@@ -16,7 +16,7 @@ namespace OperatorsOverloading
         {
             _numerator = numerator;
             _denominator = denominator;
-            
+            _decimalNumber = decimalNumber;
         }
 
         public Fraction(int numerator)
