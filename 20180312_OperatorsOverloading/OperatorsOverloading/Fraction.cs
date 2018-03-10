@@ -83,7 +83,7 @@ namespace OperatorsOverloading
 
         private static void Reduction(Fraction a)
         {
-           
+            
         }
 
         private static void ChangeNumerator(Fraction a, int b)
