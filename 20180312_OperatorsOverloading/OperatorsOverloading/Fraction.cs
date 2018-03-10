@@ -31,16 +31,11 @@ namespace OperatorsOverloading
 
         #region Арифметические операции
 
-        //public static Fraction Plus(Fraction a, Fraction b)
-        //{
-        //    return new Fraction(a._numerator + b._denominator);
-        //}
+        public static Fraction operator +(Fraction a, Fraction b)
+        {
 
-        //public static Fraction operator +(Fraction a, Fraction b)
-        //{
-
-        //    return new Fraction(a._numerator + b._numerator, a._decimalNumber + b._decimalNumber);
-        //}
+            return GetSum(a, b);
+        }
 
         public static Fraction operator *(Fraction a, Fraction b)
         {
@@ -53,5 +48,50 @@ namespace OperatorsOverloading
         }
 
         #endregion
+
+        private static int GetCommonDenominator(int d1, int d2)
+        {
+            int d3;
+            if ((d2 >= d1) && (d2 % d1 == 0))
+            {
+                d3 = d2;
+            }
+            else
+            {
+                if ((d1 > d2) && (d1 % d2 == 0))
+                {
+                    d3 = d1;
+                }
+                else
+                {
+                    d3 = d2 * d1;
+                }
+            }
+                                       
+            return d3;
+        }
+
+        private static Fraction GetSum(Fraction a, Fraction b)
+        {
+            int commonDenominator = GetCommonDenominator(a._denominator, b._denominator);
+            ChangeNumerator(a, commonDenominator);
+            ChangeNumerator(b, commonDenominator);
+            Fraction c = new Fraction(a._numerator + b._numerator, commonDenominator, a._decimalNumber + b._decimalNumber);
+            Reduction(c);
+            return c;
+        }
+
+        private static void Reduction(Fraction a)
+        {
+           
+        }
+
+        private static void ChangeNumerator(Fraction a, int b)
+        {
+            a._numerator = a._numerator * (b / a._denominator);
+           
+        }
+
+      
     }
 }
