@@ -17,9 +17,7 @@ namespace OperatorsOverloading
             _numerator = numerator;
             _denominator = denominator;
             
-        }
-
-      
+        }  
 
         #region Арифметические операции
 
@@ -69,13 +67,34 @@ namespace OperatorsOverloading
             ChangeNumerator(a, commonDenominator);
             ChangeNumerator(b, commonDenominator);
             Fraction c = new Fraction(a._numerator + b._numerator, commonDenominator);
-            Reduction(c);
+            c = Normalization(c);
             return c;
         }
 
-        private static void Reduction(Fraction a)
+        /// <summary>
+        /// нормализация дроби
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static Fraction Normalization(Fraction a)
         {
-            
+            return new Fraction(a._numerator / GetCommonDivisor(a._numerator, a._denominator), a._denominator / GetCommonDivisor(a._numerator, a._denominator));
+        }
+
+        /// <summary>
+        /// алгоритм Евклида НОД
+        /// </summary>
+        /// <param name="i"></param>
+        /// <param name="j"></param>
+        /// <returns></returns>
+        private static int GetCommonDivisor(int i, int j)
+        {
+            i = Math.Abs(i);
+            j = Math.Abs(j);
+            while (i != j)
+                if (i > j) { i -= j; }
+                else { j -= i; }
+            return i;
         }
 
         private static void ChangeNumerator(Fraction a, int b)
@@ -84,6 +103,15 @@ namespace OperatorsOverloading
            
         }
 
-      
+        public override string ToString()
+        {
+            return string.Format("{0}/{1}", _numerator, _denominator);
+        }
+
+        public double ToDouble()
+        {
+            double c = (double)_numerator / _denominator;
+            return c;
+        }
     }
 }
