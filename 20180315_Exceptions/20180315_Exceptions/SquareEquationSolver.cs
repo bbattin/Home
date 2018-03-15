@@ -8,5 +8,8 @@ namespace _20180315_Exceptions
 {
     class SquareEquationSolver
     {
+        private int _rootCount;
+
+        public int RootCount { get => _rootCount; set => _rootCount = value; }
     }
 }
