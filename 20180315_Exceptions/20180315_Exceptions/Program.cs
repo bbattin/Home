@@ -11,9 +11,9 @@ namespace _20180315_Exceptions
         static void Main(string[] args)
         {
             Console.WriteLine("a*x*x + b*x + c = 0");
-            int a = GetNumberByUser();
-            int b = GetNumberByUser();
-            int c = GetNumberByUser();
+            double a = GetNumberByUser();
+            double b = GetNumberByUser();
+            double c = GetNumberByUser();
 
             SquareEquationSolver result = new SquareEquationSolver(a, b, c);
             result.Calculate();
@@ -22,10 +22,10 @@ namespace _20180315_Exceptions
             Console.ReadKey();
         }
 
-        private static int GetNumberByUser()
+        private static double GetNumberByUser()
         {
             Console.WriteLine("Enter number = ");
-            int a = int.Parse(Console.ReadLine());
+            double a = double.Parse(Console.ReadLine());
             return a;
         }
     }

@@ -14,7 +14,7 @@ namespace _20180315_Exceptions
         /// <param name="a">a*x*x</param>
         /// <param name="b">b*x</param>
         /// <param name="c">c</param>
-        public SquareEquationSolver(int a, int b, int c)
+        public SquareEquationSolver(double a, double b, double c)
         {
             _a = a;
             _b = b;
@@ -31,7 +31,7 @@ namespace _20180315_Exceptions
             GetRoot2();
         }
 
-        public int RootCount { get => _rootCount; private set => _rootCount = value; }
+        public byte RootCount { get => _rootCount; private set => _rootCount = value; }
         public double Root1 { get => _root1; private set => _root1 = value; }
         public double Root2 { get => _root2; private set => _root2 = value; }
         public double D { get => _d; private set => _d = value; }
@@ -60,10 +60,10 @@ namespace _20180315_Exceptions
             Root2 = (-_b - Math.Sqrt(D)) / 2 * _a;
         }
 
-        private int _a;
-        private int _b;
-        private int _c;
-        private int _rootCount;
+        private double _a;
+        private double _b;
+        private double _c;
+        private byte _rootCount;
         private double _root1;
         private double _root2;
         private double _d;
