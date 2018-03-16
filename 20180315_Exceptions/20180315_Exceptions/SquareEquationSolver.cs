@@ -49,7 +49,7 @@ namespace _20180315_Exceptions
         /// </summary>
         private void GetRoot1()
         {
-            Root1 = (-_b + D) / 2 * _a;
+            Root1 = (-_b + Math.Sqrt(D)) / 2 * _a;
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace _20180315_Exceptions
         /// </summary>
         private void GetRoot2()
         {
-            Root2 = (-_b - D) / 2 * _a;
+            Root2 = (-_b - Math.Sqrt(D)) / 2 * _a;
         }
 
         private int _a;
