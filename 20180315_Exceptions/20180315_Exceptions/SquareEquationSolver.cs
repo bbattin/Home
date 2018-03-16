@@ -8,30 +8,61 @@ namespace _20180315_Exceptions
 {
     class SquareEquationSolver
     {
+        /// <summary>
+        /// инициализирует эллементы квадратного уравнения (a*x*x + b*x + c = 0)
+        /// </summary>
+        /// <param name="a">a*x*x</param>
+        /// <param name="b">b*x</param>
+        /// <param name="c">c</param>
         public SquareEquationSolver(int a, int b, int c)
         {
-            GetD(a, b, c);
-            GetRoot1(a, b, c);
-            GetRoot2(a, b, c);
+            _a = a;
+            _b = b;
+            _c = c;
         }
 
-        public int RootCount { get => _rootCount; set => _rootCount = value; }
-
-        public void GetD(int a, int b, int c)
+        /// <summary>
+        /// получает дискриминант и два корня
+        /// </summary>
+        public void Calculate()
         {
-            _d = b * b - 4 * a * c;
+            GetD();
+            GetRoot1();
+            GetRoot2();
         }
 
-        public void GetRoot1(int a, int b, int c)
+        public int RootCount { get => _rootCount; private set => _rootCount = value; }
+        public double Root1 { get => _root1; private set => _root1 = value; }
+        public double Root2 { get => _root2; private set => _root2 = value; }
+        public double D { get => _d; private set => _d = value; }
+
+        /// <summary>
+        /// получает дискриминант
+        /// </summary>
+        private void GetD()
         {
-            _root1 = -b + _d / 2 * a;
+            D = _b * _b - 4 * _a * _c;
         }
 
-        public void GetRoot2(int a, int b, int c)
+        /// <summary>
+        /// получает первый корень
+        /// </summary>
+        private void GetRoot1()
         {
-            _root2 = -b - _d / 2 * a;
+            Root1 = (-_b + D) / 2 * _a;
         }
 
+        /// <summary>
+        /// получает второй корень
+        /// </summary>
+        private void GetRoot2()
+        {
+            Root2 = (-_b - D) / 2 * _a;
+        }
+
+        private int _a;
+        private int _b;
+        private int _c;
         private int _rootCount;
         private double _root1;
         private double _root2;
