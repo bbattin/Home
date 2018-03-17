@@ -16,7 +16,14 @@ namespace _20180315_Exceptions
         /// <param name="c">c</param>
         public SquareEquationSolver(double a, double b, double c)
         {
-            _a = a;
+            if (a == 0)
+            {
+                throw new EquationSolverException("условие уравнения - a не равно 0");
+            }
+            else
+            {
+                _a = a;
+            }
             _b = b;
             _c = c;
         }
@@ -27,11 +34,20 @@ namespace _20180315_Exceptions
         public void Calculate()
         {
             GetD();
-            GetRoot1();
-            GetRoot2();
+            if (D == 0)
+            {
+                GetRoot1();
+                Root2 = Root1;
+            }
+            else
+            {
+                GetRoot1();
+                GetRoot2();
+            }
+            
         }
 
-        public byte RootCount { get => _rootCount; private set => _rootCount = value; }
+        //public byte RootCount { get => _rootCount; private set => _rootCount = value; }
         public double Root1 { get => _root1; private set => _root1 = value; }
         public double Root2 { get => _root2; private set => _root2 = value; }
         public double D { get => _d; private set => _d = value; }
@@ -42,6 +58,10 @@ namespace _20180315_Exceptions
         private void GetD()
         {
             D = _b * _b - 4 * _a * _c;
+            if (D < 0)
+            {
+                throw new EquationSolverException("Дискриминант отрицательный, корни не веществены");
+            }
         }
 
         /// <summary>
@@ -63,7 +83,7 @@ namespace _20180315_Exceptions
         private double _a;
         private double _b;
         private double _c;
-        private byte _rootCount;
+        //private byte _rootCount;
         private double _root1;
         private double _root2;
         private double _d;

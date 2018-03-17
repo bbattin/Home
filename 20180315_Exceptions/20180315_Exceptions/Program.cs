@@ -10,14 +10,22 @@ namespace _20180315_Exceptions
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("a*x*x + b*x + c = 0");
+            Console.WriteLine("Решение квадратного уравнения: a*x*x + b*x + c = 0, где а не равно 0. Введите a, b, c:");
             double a = GetNumberByUser();
             double b = GetNumberByUser();
             double c = GetNumberByUser();
 
-            SquareEquationSolver result = new SquareEquationSolver(a, b, c);
-            result.Calculate();
-            Console.WriteLine("D = {0}, x1 = {1}, x2 = {2}", result.D, result.Root1, result.Root2);
+            try
+            {
+                SquareEquationSolver result = new SquareEquationSolver(a, b, c);
+                result.Calculate();
+                Console.WriteLine("D = {0}, x1 = {1}, x2 = {2}", result.D, result.Root1, result.Root2);
+            }
+            catch (EquationSolverException ex)
+            {
+                Console.WriteLine("Ошибка: " + ex.Message);
+            }
+                     
 
             Console.ReadKey();
         }
