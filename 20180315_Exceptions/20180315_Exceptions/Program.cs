@@ -25,7 +25,10 @@ namespace _20180315_Exceptions
             {
                 Console.WriteLine("Ошибка: " + ex.Message);
             }
-                     
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ошибка: " + ex.Message);
+            }
 
             Console.ReadKey();
         }

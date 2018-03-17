@@ -18,7 +18,7 @@ namespace _20180315_Exceptions
         {
             if (a == 0)
             {
-                throw new EquationSolverException("условие уравнения - a не равно 0");
+                throw new EquationSolverException("условие уравнения - a не равно 0, присвоено значение 1");
             }
             else
             {
@@ -60,7 +60,7 @@ namespace _20180315_Exceptions
             D = _b * _b - 4 * _a * _c;
             if (D < 0)
             {
-                throw new EquationSolverException("Дискриминант отрицательный, корни не веществены");
+                throw new Exception(string.Format("Дискриминант отрицательный, корни не веществены - {0}", D));
             }
         }
 
@@ -80,7 +80,7 @@ namespace _20180315_Exceptions
             Root2 = (-_b - Math.Sqrt(D)) / 2 * _a;
         }
 
-        private double _a;
+        private double _a = 1;
         private double _b;
         private double _c;
         //private byte _rootCount;
