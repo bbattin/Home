@@ -18,7 +18,7 @@ namespace _20180315_Exceptions
         {
             if (a == 0)
             {
-                throw new EquationSolverException("условие уравнения - a не равно 0, присвоено значение 1");
+                throw new EquationSolverException("Ошибка: условие уравнения - a не равно 0, присвоено значение 1");
             }
             else
             {
@@ -60,7 +60,7 @@ namespace _20180315_Exceptions
             D = _b * _b - 4 * _a * _c;
             if (D < 0)
             {
-                throw new Exception(string.Format("Дискриминант отрицательный, корни не веществены - {0}", D));
+                throw new EquationSolverException(string.Format("Дискриминант отрицательный, корни не веществены - {0}", D));
             }
         }
 

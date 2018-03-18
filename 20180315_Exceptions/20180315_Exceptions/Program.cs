@@ -17,20 +17,33 @@ namespace _20180315_Exceptions
 
             try
             {
-                SquareEquationSolver result = new SquareEquationSolver(a, b, c);
+                SquareEquationSolver result = Create(a, b, c);
                 result.Calculate();
                 Console.WriteLine("D = {0}, x1 = {1}, x2 = {2}", result.D, result.Root1, result.Root2);
             }
             catch (EquationSolverException ex)
             {
-                Console.WriteLine("Ошибка: " + ex.Message);
+                Console.WriteLine(ex.Message);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Ошибка: " + ex.Message);
-            }
+            
 
             Console.ReadKey();
+        }
+
+        private static SquareEquationSolver Create(double a, double b, double c)
+        {
+            SquareEquationSolver obj;
+
+            try
+            {
+                obj = new SquareEquationSolver(a, b, c);
+            }
+            catch (EquationSolverException ex)
+            {
+                Console.WriteLine(ex.Message);
+                obj = new SquareEquationSolver(1, b, c);
+            }
+            return obj;
         }
 
         private static double GetNumberByUser()
