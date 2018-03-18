@@ -30,7 +30,12 @@ namespace _20180315_Exceptions
                 Console.WriteLine("HResult: " + ex.HResult);
 
             }
-            
+            finally
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Решение завершено");
+            }
+
 
             Console.ReadKey();
         }
