@@ -23,7 +23,12 @@ namespace _20180315_Exceptions
             }
             catch (EquationSolverException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("{0} {1}", ex.CreatedDate, ex.Message);
+                Console.WriteLine("Метод: " + ex.TargetSite);
+                Console.WriteLine(ex.Source);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("HResult: " + ex.HResult);
+
             }
             
 
@@ -40,7 +45,7 @@ namespace _20180315_Exceptions
             }
             catch (EquationSolverException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("{0} {1}", ex.CreatedDate, ex.Message);
                 obj = new SquareEquationSolver(1, b, c);
             }
             return obj;
