@@ -48,9 +48,40 @@ namespace _20180315_Exceptions
         }
 
         //public byte RootCount { get => _rootCount; private set => _rootCount = value; }
-        public double Root1 { get => _root1; private set => _root1 = value; }
-        public double Root2 { get => _root2; private set => _root2 = value; }
-        public double D { get => _d; private set => _d = value; }
+        public double Root1 
+        { 
+            get 
+            {
+               return _root1;
+            }
+            private set 
+            {
+                _root1 = value;
+            }
+        }
+        public double Root2 
+        { 
+            get
+            {
+               return _root2; 
+            }
+            private set 
+            {
+                _root2 = value; 
+            }
+        }
+        public double D 
+        { 
+            get
+            {
+                return _d; 
+            }
+               
+            private set 
+            {
+                _d = value; 
+            }
+        }
 
         /// <summary>
         /// получает дискриминант
