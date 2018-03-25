@@ -14,9 +14,16 @@ namespace _20180325_Events
             
             PrintArray(items);
             Sorter p = new Sorter();
-
-            p.Sort(items);
+            
+            p.BubbleSort(items);
             PrintArray(items);
+
+            int[] items2 = new int[] { 5, 9, 2, 8, 4, 1 };
+            PrintArray(items2);
+
+           
+            p.InsertionSort(items2);
+            PrintArray(items2);
 
             Console.ReadKey();
 
