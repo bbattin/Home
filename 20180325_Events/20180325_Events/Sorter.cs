@@ -35,8 +35,8 @@ namespace _20180325_Events
     delegate bool CompareItems(object sender, CompareEventArgs args);
     delegate void MovedItems(object sender, MovedEventArgs args);
 
-    delegate void Started(object sender, CompareEventArgs args);
-    delegate void Finished(object sender, MovedEventArgs args);
+    //delegate void Started(object sender, CompareEventArgs args);
+    //delegate void Finished(object sender, MovedEventArgs args);
 
     class Sorter
     {
@@ -103,6 +103,9 @@ namespace _20180325_Events
                 _item -= value;
             }
         }
+
+        public event EventHandler Started;
+        public event EventHandler Finished;
 
 
         protected void ToCompare(int a, int b)
