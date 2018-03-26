@@ -21,13 +21,15 @@ namespace _20180325_Events
 
     class MovedEventArgs : EventArgs
     {
-        public MovedEventArgs(int i)
+        public MovedEventArgs(int i, int j)
         {
-            Index = i;
+            IndexFrom = i;
+            IndexTo = j;
         }
 
         // данные, описывающие событие
-        public int Index { get; private set; }
+        public int IndexFrom { get; private set; } // индекс изначального положения элемента
+        public int IndexTo { get; private set; }   // индекс нового положения элемента
     }
 
     delegate bool Compare(object sender, CompareEventArgs args);
@@ -140,6 +142,54 @@ namespace _20180325_Events
             // Шаг 4.
             itemArray[indexInsertingAt + 1] = temp;
         }
+
+        public event Compare Compare
+        {
+            add
+            {
+                _element += value;
+            }
+            remove
+            {
+                _element -= value;
+            }
+        }
+
+        public event Moved Moved
+        {
+            add
+            {
+                _item += value;
+            }
+            remove
+            {
+                _item -= value;
+            }
+        }
+
+
+        protected void ToCompare(int a, int b)
+        {
+            if (_element != null)
+            {
+                _element(this, new CompareEventArgs(a, b));
+            }
+        }
+
+        
+
+        protected void ToMoved(int i, int j)
+        {
+            if (_item != null)
+            {
+                _item(this, new MovedEventArgs(i, j));
+            }
+        }
+
+        Compare _element;
+        Moved _item;
+            
+
 
     }
 }
