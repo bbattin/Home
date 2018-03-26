@@ -6,7 +6,30 @@ using System.Threading.Tasks;
 
 namespace _20180325_Events
 {
-    
+    class CompareEventArgs : EventArgs
+    {
+        public CompareEventArgs(int i)
+        {
+            Iter = i;
+        }
+
+        // данные, описывающие событие
+        public int Iter { get; private set; }
+    }
+
+    class MovedEventArgs : EventArgs
+    {
+        public MovedEventArgs(int i)
+        {
+            Iter = i;
+        }
+
+        // данные, описывающие событие
+        public int Iter { get; private set; }
+    }
+
+    delegate bool Compare(int[] items, int i, int j);
+    delegate void Moved(int[] items, int i, int j);
     class Sorter
     {
 
