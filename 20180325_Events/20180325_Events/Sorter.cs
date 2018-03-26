@@ -8,28 +8,34 @@ namespace _20180325_Events
 {
     class CompareEventArgs : EventArgs
     {
-        public CompareEventArgs(int i)
+        public CompareEventArgs(int a, int b)
         {
-            Iter = i;
+            FirstNumber = a;
+            SecondNumber = b;
         }
 
         // данные, описывающие событие
-        public int Iter { get; private set; }
+        public int FirstNumber { get; private set; }   // значение первого элемента, который сравниваем
+        public int SecondNumber { get; private set; }  // значение второго элемента, который сравниваем
     }
 
     class MovedEventArgs : EventArgs
     {
         public MovedEventArgs(int i)
         {
-            Iter = i;
+            Index = i;
         }
 
         // данные, описывающие событие
-        public int Iter { get; private set; }
+        public int Index { get; private set; }
     }
 
-    delegate bool Compare(int[] items, int i, int j);
-    delegate void Moved(int[] items, int i, int j);
+    delegate bool Compare(object sender, CompareEventArgs args);
+    delegate void Moved(object sender, MovedEventArgs args);
+
+    delegate void Started(object sender, CompareEventArgs args);
+    delegate void Finished(object sender, MovedEventArgs args);
+
     class Sorter
     {
 
