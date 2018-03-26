@@ -54,7 +54,7 @@ namespace _20180325_Events
                 swapped = false;
                 for (int i = 1; i < items.Length; i++)
                 {
-
+                    ToCompare(items[i - 1], items[i]);
                     if (items[i - 1].CompareTo(items[i]) > 0)
                     {
                         Swap(items, i - 1, i);
@@ -72,6 +72,7 @@ namespace _20180325_Events
         /// <param name="right"></param>
         void Swap(int[] items, int left, int right)
         {
+            ToMoved(left, right);
             if (left != right)
             {
                 int temp = items[left];
