@@ -32,8 +32,8 @@ namespace _20180325_Events
         public int IndexTo { get; private set; }   // индекс нового положения элемента
     }
 
-    delegate bool Compare(object sender, CompareEventArgs args);
-    delegate void Moved(object sender, MovedEventArgs args);
+    delegate bool CompareItems(object sender, CompareEventArgs args);
+    delegate void MovedItems(object sender, MovedEventArgs args);
 
     delegate void Started(object sender, CompareEventArgs args);
     delegate void Finished(object sender, MovedEventArgs args);
@@ -80,7 +80,7 @@ namespace _20180325_Events
         }
 
         
-        public event Compare Compare
+        public event CompareItems Compare
         {
             add
             {
@@ -92,7 +92,7 @@ namespace _20180325_Events
             }
         }
 
-        public event Moved Moved
+        public event MovedItems Moved
         {
             add
             {
@@ -123,8 +123,8 @@ namespace _20180325_Events
             }
         }
 
-        Compare _element;
-        Moved _item;
+        CompareItems _element;
+        MovedItems _item;
             
 
 
