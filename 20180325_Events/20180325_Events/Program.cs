@@ -27,9 +27,7 @@ namespace _20180325_Events
             TimeSpan ts = stopWatch.Elapsed;
 
             // Format and display the TimeSpan value.
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-                ts.Hours, ts.Minutes, ts.Seconds,
-                ts.Milliseconds / 10);
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000000000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("RunTime " + elapsedTime);

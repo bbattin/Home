@@ -118,8 +118,6 @@ namespace _20180325_Events
             }
         }
 
-        
-
         protected void ToMoved(int i, int j)
         {
             if (_item != null)
@@ -128,9 +126,26 @@ namespace _20180325_Events
             }
         }
 
+        protected void ToStarted(EventArgs a)
+        {
+            if (_start != null)
+            {
+                _start(this, a);
+            }
+        }
+
+        protected void ToFinished(EventArgs a)
+        {
+            if (_finish != null)
+            {
+                _finish(this, a);
+            }
+        }
+
         CompareItems _element;
         MovedItems _item;
-            
+        EventHandler _start;
+        EventHandler _finish;
 
 
     }
