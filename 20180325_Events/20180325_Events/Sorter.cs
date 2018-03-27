@@ -32,7 +32,7 @@ namespace _20180325_Events
         public int IndexTo { get; private set; }   // индекс нового положения элемента
     }
 
-    delegate bool CompareItems(object sender, CompareEventArgs args);
+    delegate void CompareItems(object sender, CompareEventArgs args);
     delegate void MovedItems(object sender, MovedEventArgs args);
 
     //delegate void Started(object sender, CompareEventArgs args);

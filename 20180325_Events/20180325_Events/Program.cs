@@ -14,22 +14,40 @@ namespace _20180325_Events
             
             PrintArray(items);
             Sorter p = new Sorter();
-            
+
+            p.Compare += OnNextCompare;
             p.BubbleSort(items);
             PrintArray(items);
 
-           
+            Analizer suscr = new Analizer(p);
+            p.BubbleSort(items);
+            PrintArray(items);
+
             Console.ReadKey();
+        
+
+        
+
+        Console.ReadKey();
 
         }
 
         private static void PrintArray(int[] items)
         {
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
             for (int i = 0; i < items.Length; i++)
             {
-                Console.Write(items[i]);
+                Console.Write("{0} ", items[i]);
             }
+            Console.WriteLine();
         }
-    }
+
+        // статический слушатель
+        public static void OnNextCompare(object sender, CompareEventArgs args)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Analizer.OnNextCompare(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
+        }
+}
 }
