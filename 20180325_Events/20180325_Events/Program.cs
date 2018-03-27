@@ -15,11 +15,11 @@ namespace _20180325_Events
             PrintArray(items);
             Sorter p = new Sorter();
 
-            p.Compare += OnNextCompare;
+            Analizer suscr = new Analizer(p);
             p.BubbleSort(items);
             PrintArray(items);
 
-            Analizer suscr = new Analizer(p);
+            p.Compare += OnNextCompare;
             p.BubbleSort(items);
             PrintArray(items);
 
@@ -47,7 +47,7 @@ namespace _20180325_Events
         public static void OnNextCompare(object sender, CompareEventArgs args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Analizer.OnNextCompare(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
+            Console.WriteLine("static OnNextCompare(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
         }
 }
 }

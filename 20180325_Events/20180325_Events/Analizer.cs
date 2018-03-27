@@ -11,7 +11,8 @@ namespace _20180325_Events
         public Analizer(Sorter p)
         {
             p.Compare += OnNextCompare1;
-            p.Compare += OnNextCompare2;
+            //p.Compare += OnNextCompare2;
+            p.Moved += OnNextMoved;
         }
 
         public void OnNextCompare1(object sender, CompareEventArgs args)
@@ -20,10 +21,16 @@ namespace _20180325_Events
             Console.WriteLine("Analizer.OnNextCompare1(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
         }
 
-        public void OnNextCompare2(object sender, CompareEventArgs args)
+        public void OnNextMoved(object sender, MovedEventArgs args)
         {
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("Analizer.OnNextCompare2(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Analizer.OnNextMoved(): args.IndexFrom = {0}, args.IndexTo = {1}", args.IndexFrom, args.IndexTo);
         }
+
+        //public void OnNextCompare2(object sender, CompareEventArgs args)
+        //{
+        //    Console.ForegroundColor = ConsoleColor.Magenta;
+        //    Console.WriteLine("Analizer.OnNextCompare2(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
+        //}
     }
 }
