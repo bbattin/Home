@@ -37,7 +37,7 @@ namespace _20180325_Events
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Report: count compare - {0}, moved - {1}", CompareCounter, MovedCounter);
         }
-        
+
 
         //public void OnNextCompare2(object sender, CompareEventArgs args)
         //{
@@ -45,7 +45,7 @@ namespace _20180325_Events
         //    Console.WriteLine("Analizer.OnNextCompare2(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
         //}
 
-        public int CompareCounter { get ; private set ; }
-        public int MovedCounter { get ; private set ; }
+        private int CompareCounter { get ; set ; }
+        private int MovedCounter { get ; set ; }
     }
 }
