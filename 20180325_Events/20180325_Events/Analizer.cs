@@ -40,6 +40,12 @@ namespace _20180325_Events
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Report: count compare - {0}, moved - {1}", CompareCounter, MovedCounter);
+
+            TimeSpan ts = StopWatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000000000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("RunTime " + elapsedTime);
         }
 
         public void Start(object sender, EventArgs args)
@@ -54,14 +60,6 @@ namespace _20180325_Events
             StopWatch.Stop();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Finish");
-
-            TimeSpan ts = StopWatch.Elapsed;
-
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000000000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("RunTime " + elapsedTime);
-
         }
 
         //public void GetRunTime()
