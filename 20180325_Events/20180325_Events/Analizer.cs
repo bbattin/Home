@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace _20180325_Events
@@ -13,6 +14,9 @@ namespace _20180325_Events
             p.Compare += OnNextCompare;
             //p.Compare += OnNextCompare2;
             p.Moved += OnNextMoved;
+            p.Started += Start;
+            p.Finished += Finish;
+
             CompareCounter = 0;
             MovedCounter = 0;
 
@@ -38,6 +42,34 @@ namespace _20180325_Events
             Console.WriteLine("Report: count compare - {0}, moved - {1}", CompareCounter, MovedCounter);
         }
 
+        public void Start(object sender, EventArgs args)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Start");
+        }
+
+        public void Finish(object sender, EventArgs args)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Finish");
+        }
+
+        public void GetRunTime()
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            stopWatch.Stop();
+            // Get the elapsed time as a TimeSpan value.
+            TimeSpan ts = stopWatch.Elapsed;
+
+            // Format and display the TimeSpan value.
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000000000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("RunTime " + elapsedTime);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Report: count compare - {0}, moved - {1}", CompareCounter, MovedCounter);
+        }
 
         //public void OnNextCompare2(object sender, CompareEventArgs args)
         //{

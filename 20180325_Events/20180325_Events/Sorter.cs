@@ -32,6 +32,24 @@ namespace _20180325_Events
         public int IndexTo { get; private set; }   // индекс нового положения элемента
     }
 
+    //class StartedEventArgs : EventArgs
+    //{
+    //    public StartedEventArgs()
+    //    {
+            
+    //    }
+
+    //}
+
+    //class FinishedEventArgs : EventArgs
+    //{
+    //    public FinishedEventArgs()
+    //    {
+           
+    //    }
+
+    //}
+
     delegate void CompareItems(object sender, CompareEventArgs args);
     delegate void MovedItems(object sender, MovedEventArgs args);
 
@@ -48,7 +66,7 @@ namespace _20180325_Events
         public void BubbleSort(int[] items)
         {
             bool swapped;
-
+            OnStarted();
             do
             {
                 swapped = false;
@@ -62,6 +80,7 @@ namespace _20180325_Events
                     }
                 }
             } while (swapped != false);
+            OnFinished();
         }
 
         /// <summary>
@@ -126,26 +145,26 @@ namespace _20180325_Events
             }
         }
 
-        protected void ToStarted(EventArgs a)
+        protected void OnStarted()
         {
-            if (_start != null)
+            if (Started != null)
             {
-                _start(this, a);
+                Started(this, new EventArgs());
             }
         }
 
-        protected void ToFinished(EventArgs a)
+        protected void OnFinished()
         {
-            if (_finish != null)
+            if (Started != null)
             {
-                _finish(this, a);
+                Finished(this, new EventArgs());
             }
         }
 
         CompareItems _element;
         MovedItems _item;
-        EventHandler _start;
-        EventHandler _finish;
+        //StartedEventArgs _start;
+        //FinishedEventArgs _finish;
 
 
     }

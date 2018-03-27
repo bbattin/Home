@@ -15,22 +15,10 @@ namespace _20180325_Events
             
             PrintArray(items);
             Sorter p = new Sorter();
-
-            Stopwatch stopWatch = new Stopwatch();
-                           
-
+                                                
             Analizer suscr = new Analizer(p);
-            stopWatch.Start();
+            
             p.BubbleSort(items);
-            stopWatch.Stop();
-            // Get the elapsed time as a TimeSpan value.
-            TimeSpan ts = stopWatch.Elapsed;
-
-            // Format and display the TimeSpan value.
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000000000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("RunTime " + elapsedTime);
             PrintArray(items);
             suscr.Report();
 
