@@ -10,15 +10,15 @@ namespace _20180325_Events
     {
         public Analizer(Sorter p)
         {
-            p.Compare += OnNextCompare1;
+            p.Compare += OnNextCompare;
             //p.Compare += OnNextCompare2;
             p.Moved += OnNextMoved;
         }
 
-        public void OnNextCompare1(object sender, CompareEventArgs args)
+        public void OnNextCompare(object sender, CompareEventArgs args)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Analizer.OnNextCompare1(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
+            Console.WriteLine("Analizer.OnNextCompare(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
         }
 
         public void OnNextMoved(object sender, MovedEventArgs args)

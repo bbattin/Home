@@ -72,7 +72,6 @@ namespace _20180325_Events
         /// <param name="right"></param>
         void Swap(int[] items, int left, int right)
         {
-            ToMoved(left, right);
             if (left != right)
             {
                 ToMoved(left, right);
