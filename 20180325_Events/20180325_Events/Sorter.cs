@@ -75,6 +75,7 @@ namespace _20180325_Events
             ToMoved(left, right);
             if (left != right)
             {
+                ToMoved(left, right);
                 int temp = items[left];
                 items[left] = items[right];
                 items[right] = temp;
