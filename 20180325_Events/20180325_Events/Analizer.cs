@@ -26,6 +26,7 @@ namespace _20180325_Events
         {
             CompareCounter++;
             Console.ForegroundColor = ConsoleColor.DarkGreen;
+            //Console.Write(".");
             Console.WriteLine("Compare: first number - {0}, second number = {1}", args.FirstNumber, args.SecondNumber);
         }
 
@@ -33,6 +34,7 @@ namespace _20180325_Events
         {
             MovedCounter++;
             Console.ForegroundColor = ConsoleColor.Gray;
+            //Console.Write(".");
             Console.WriteLine("Moved: index from = {0}, index to = {1}", args.IndexFrom, args.IndexTo);
         }
 
