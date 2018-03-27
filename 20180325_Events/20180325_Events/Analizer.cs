@@ -19,7 +19,7 @@ namespace _20180325_Events
 
             CompareCounter = 0;
             MovedCounter = 0;
-
+            StopWatch = new Stopwatch();
         }
 
         public void OnNextCompare(object sender, CompareEventArgs args)
@@ -46,30 +46,39 @@ namespace _20180325_Events
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Start");
+            StopWatch.Start();
         }
 
         public void Finish(object sender, EventArgs args)
         {
+            StopWatch.Stop();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Finish");
-        }
 
-        public void GetRunTime()
-        {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-            stopWatch.Stop();
-            // Get the elapsed time as a TimeSpan value.
-            TimeSpan ts = stopWatch.Elapsed;
+            TimeSpan ts = StopWatch.Elapsed;
 
-            // Format and display the TimeSpan value.
             string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000000000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("RunTime " + elapsedTime);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Report: count compare - {0}, moved - {1}", CompareCounter, MovedCounter);
+
         }
+
+        //public void GetRunTime()
+        //{
+        //    Stopwatch stopWatch = new Stopwatch();
+        //    stopWatch.Start();
+        //    stopWatch.Stop();
+        //    // Get the elapsed time as a TimeSpan value.
+        //    TimeSpan ts = stopWatch.Elapsed;
+
+        //    // Format and display the TimeSpan value.
+        //    string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000000000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+        //    Console.WriteLine();
+        //    Console.ForegroundColor = ConsoleColor.White;
+        //    Console.WriteLine("RunTime " + elapsedTime);
+            
+        //}
 
         //public void OnNextCompare2(object sender, CompareEventArgs args)
         //{
@@ -79,5 +88,7 @@ namespace _20180325_Events
 
         private int CompareCounter { get ; set ; }
         private int MovedCounter { get ; set ; }
+        private Stopwatch StopWatch { get ; set ; }
+        
     }
 }
