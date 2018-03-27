@@ -11,7 +11,7 @@ namespace _20180325_Events
     {
         static void Main(string[] args)
         {
-            int[] items = new int[] { 5, 9, 2, 8, 4, 1 };
+            int[] items = GetRandomArray(150);
             
             PrintArray(items);
             Sorter p = new Sorter();
@@ -48,11 +48,22 @@ namespace _20180325_Events
             Console.WriteLine();
         }
 
+        private static int[] GetRandomArray(int countItems)
+        {
+            Random rand = new Random();
+            int[] items = new int[countItems];
+            for (int i = 0; i < countItems; i++)
+            {
+                items[i] = rand.Next(0, 1000000);
+            }
+            return items;
+        }
+
         //// статический слушатель
         //public static void OnNextCompare(object sender, CompareEventArgs args)
         //{
         //    Console.ForegroundColor = ConsoleColor.Green;
         //    Console.WriteLine("static OnNextCompare(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
         //}
-}
+    }
 }
