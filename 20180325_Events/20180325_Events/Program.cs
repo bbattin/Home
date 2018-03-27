@@ -18,7 +18,8 @@ namespace _20180325_Events
             Analizer suscr = new Analizer(p);
             p.BubbleSort(items);
             PrintArray(items);
-            Console.WriteLine("Count compare: {0}, moved: {1}", suscr.IteratorCompare, suscr.IteratorMoved);
+            suscr.Report();
+
             //p.Compare += OnNextCompare;
             //p.BubbleSort(items);
             //PrintArray(items);
@@ -36,10 +37,12 @@ namespace _20180325_Events
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Array: ");
             for (int i = 0; i < items.Length; i++)
             {
                 Console.Write("{0} ", items[i]);
             }
+            Console.WriteLine();
             Console.WriteLine();
         }
 
