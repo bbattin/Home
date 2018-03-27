@@ -19,9 +19,9 @@ namespace _20180325_Events
             p.BubbleSort(items);
             PrintArray(items);
 
-            p.Compare += OnNextCompare;
-            p.BubbleSort(items);
-            PrintArray(items);
+            //p.Compare += OnNextCompare;
+            //p.BubbleSort(items);
+            //PrintArray(items);
 
             Console.ReadKey();
         
@@ -43,11 +43,11 @@ namespace _20180325_Events
             Console.WriteLine();
         }
 
-        // статический слушатель
-        public static void OnNextCompare(object sender, CompareEventArgs args)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("static OnNextCompare(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
-        }
+        //// статический слушатель
+        //public static void OnNextCompare(object sender, CompareEventArgs args)
+        //{
+        //    Console.ForegroundColor = ConsoleColor.Green;
+        //    Console.WriteLine("static OnNextCompare(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
+        //}
 }
 }
