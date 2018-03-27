@@ -18,7 +18,7 @@ namespace _20180325_Events
             Analizer suscr = new Analizer(p);
             p.BubbleSort(items);
             PrintArray(items);
-
+            Console.WriteLine("Count compare: {0}, moved: {1}", suscr.IteratorCompare, suscr.IteratorMoved);
             //p.Compare += OnNextCompare;
             //p.BubbleSort(items);
             //PrintArray(items);

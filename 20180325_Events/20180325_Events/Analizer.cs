@@ -17,12 +17,14 @@ namespace _20180325_Events
 
         public void OnNextCompare(object sender, CompareEventArgs args)
         {
+            IteratorCompare++;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Analizer.OnNextCompare(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
         }
 
         public void OnNextMoved(object sender, MovedEventArgs args)
         {
+            IteratorMoved++;
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Analizer.OnNextMoved(): args.IndexFrom = {0}, args.IndexTo = {1}", args.IndexFrom, args.IndexTo);
         }
@@ -32,5 +34,8 @@ namespace _20180325_Events
         //    Console.ForegroundColor = ConsoleColor.Magenta;
         //    Console.WriteLine("Analizer.OnNextCompare2(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
         //}
+
+        public int IteratorCompare { get ; private set ; }
+        public int IteratorMoved { get ; private set ; }
     }
 }
