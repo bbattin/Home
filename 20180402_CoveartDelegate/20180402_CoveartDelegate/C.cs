@@ -8,5 +8,10 @@ namespace _20180402_CoveartDelegate
 {
     class C : B
     {
+        public C(string name)
+            : base(name)
+        {
+
+        }
     }
 }

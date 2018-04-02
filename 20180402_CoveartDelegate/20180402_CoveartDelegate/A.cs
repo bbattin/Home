@@ -8,5 +8,15 @@ namespace _20180402_CoveartDelegate
 {
     class A
     {
+        public string Name { get; set; }
+
+        public A(string name)
+        {
+            Name = name;
+        }
+        public void Display()
+        {
+            Console.WriteLine(Name);
+        }
     }
 }
