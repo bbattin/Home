@@ -36,17 +36,6 @@ namespace _20180402_iterators
             Console.ReadKey();
         }
 
-        private static void CreateContainer()
-        {
-            Container c = new Container(10);
-
-            c.Add(2);
-            c.Add(5);
-            c.Add(-5);
-            c.Add(8);
-
-        }
-
         private static void ContainerDemo()
         {
             Container c = new Container(10);
