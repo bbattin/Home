@@ -8,20 +8,43 @@ namespace _20180402_iterators
 {
     class Program
     {
+        public Random random = new Random();
+
         static void Main(string[] args)
         {
-            Stack s = new Stack();
-            s.Push(1);
-            s.Push(10);
-            s.Push(100);
-            Console.WriteLine(s.Pop());
-            Console.WriteLine(s.Pop());
-            Console.WriteLine(s.Pop());
+            //Stack s = new Stack();
+            //s.Push(1);
+            //s.Push(10);
+            //s.Push(100);
+            //Console.WriteLine(s.Pop());
+            //Console.WriteLine(s.Pop());
+            //Console.WriteLine(s.Pop());
 
+            //ContainerDemo();
 
-            // ContainerDemo();
+            Container c = new Container(10);
+            c.Add(2);
+            c.Add(5);
+            c.Add(-5);
+            c.Add(8);
+
+            foreach (object b in c)
+            {
+                Console.WriteLine(b);
+            }
 
             Console.ReadKey();
+        }
+
+        private static void CreateContainer()
+        {
+            Container c = new Container(10);
+
+            c.Add(2);
+            c.Add(5);
+            c.Add(-5);
+            c.Add(8);
+
         }
 
         private static void ContainerDemo()

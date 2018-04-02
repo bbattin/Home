@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _20180402_iterators
 {
-    class Container
+    class Container : IEnumerable
     {
         public Container(int size)
         {
@@ -34,6 +35,12 @@ namespace _20180402_iterators
             {
                 return _count;
             }
+        }
+
+        // возвращаем перечислитель
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return _items.GetEnumerator();
         }
 
         public void Add(object item)
