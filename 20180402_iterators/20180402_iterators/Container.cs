@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace _20180402_iterators
 {
-    class Container : IEnumerable
+    class Container : IEnumerable, IEnumerator
     {
+
         public Container(int size)
         {
             _items = new object[size];
@@ -37,15 +38,42 @@ namespace _20180402_iterators
             }
         }
 
-        // возвращаем перечислитель
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return _items.GetEnumerator();
-        }
-
         public void Add(object item)
         {
             _items[_count++] = item;
+        }
+
+        // возвращаем перечислитель
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this;
+        }
+
+        // реализуем интерфейс IEnumerator
+
+        public bool MoveNext()
+        {
+            if (_count == _items.Length - 1)
+            {
+                Reset();
+                return false;
+            }
+
+            _count++;
+            return true;
+        }
+
+        public void Reset()
+        {
+            _count = 0;
+        }
+
+        public object Current
+        {
+            get
+            {
+                return _items[_count];
+            }
         }
 
         private int _count = 0;
