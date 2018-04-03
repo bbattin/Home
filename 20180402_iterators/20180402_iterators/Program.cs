@@ -8,16 +8,12 @@ namespace _20180402_iterators
 {
     class Program
     {
-        public Random random = new Random();
+        public static Random random = new Random();
 
         static void Main(string[] args)
         {
-          
-            Container c = new Container(10);
-            c.Add(2);
-            c.Add(5);
-            c.Add(-5);
-            c.Add(8);
+
+            Container c = CreateRandomContainer(20);
 
             foreach (object b in c)
             {
@@ -27,48 +23,22 @@ namespace _20180402_iterators
             Console.ReadKey();
         }
 
-        private static void ContainerDemo()
+        /// <summary>
+        /// создает контейнер заданной длины и наполняет рандомными числами
+        /// </summary>
+        /// <param name="count">количество элементов в контейнере</param>
+        /// <returns></returns>
+        private static Container CreateRandomContainer(int count)
         {
-            Container c = new Container(10);
-
-            c.Add(2);
-            c.Add(5);
-            c.Add(-5);
-            c.Add(8);
-
-            PrintContainer2(c);
-
-            c.Add(2.01);
-
-            PrintContainer2(c);
-        }
-
-        // with unbpoxing
-        private static void PrintContainer1(Container c)
-        {
-            for (int i = 0; i < c.Count; i++)
+            Container c = new Container(count);
+            
+            for (int i = 0; i < count; i++)
             {
-                int item = (int)c[i];
-                Console.Write("{0}\t", item);
+                c.Add(random.Next(0, 1000));
             }
-            Console.WriteLine();
+            return c;
         }
 
-        // without unbpoxing
-        private static void PrintContainer2(Container c)
-        {
-            for (int i = 0; i < c.Count; i++)
-            {
-                //string item = (string)c[i];
-                string item = c[i].ToString();
-
-                int number = int.Parse(item);
-
-                Console.Write("{0}\t", number);
-
-                //Console.Write("{0}\t", c[i]);
-            }
-            Console.WriteLine();
-        }
+       
     }
 }

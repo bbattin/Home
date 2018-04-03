@@ -76,8 +76,8 @@ namespace _20180402_iterators
             }
         }
 
-        private int _index = -1;
-        private int _count = 0;
+        private int _index = -1;    // индекс для перечисления
+        private int _count = 0;     // количество элементов
         private object[] _items;    // элементы контейнера
     }
 }
