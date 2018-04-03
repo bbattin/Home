@@ -17,7 +17,7 @@ namespace _20180402_iterators
 
             foreach (object b in c)
             {
-                Console.WriteLine(b);
+                Console.Write("{0,5}", b);
             }
 
             Console.ReadKey();
