@@ -22,7 +22,7 @@ namespace _20180325_Events
             StopWatch = new Stopwatch();
         }
 
-        public void OnNextCompare(object sender, CompareEventArgs args)
+        public void OnNextCompare(object sender, CompareAndMovedEventArgs args)
         {
             CompareCounter++;
             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -30,7 +30,7 @@ namespace _20180325_Events
             Console.WriteLine("Compare: first number - {0}, second number = {1}", args.FirstNumber, args.SecondNumber);
         }
 
-        public void OnNextMoved(object sender, MovedEventArgs args)
+        public void OnNextMoved(object sender, MovedAndCompareEventArgs args)
         {
             MovedCounter++;
             Console.ForegroundColor = ConsoleColor.Gray;

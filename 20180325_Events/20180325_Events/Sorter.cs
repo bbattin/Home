@@ -6,52 +6,27 @@ using System.Threading.Tasks;
 
 namespace _20180325_Events
 {
-    class CompareEventArgs : EventArgs
+
+    class StartedEventArgs : EventArgs
     {
-        public CompareEventArgs(int a, int b)
+        public StartedEventArgs()
         {
-            FirstNumber = a;
-            SecondNumber = b;
+
         }
 
-        // данные, описывающие событие
-        public int FirstNumber { get; private set; }   // значение первого элемента, который сравниваем
-        public int SecondNumber { get; private set; }  // значение второго элемента, который сравниваем
     }
 
-    class MovedEventArgs : EventArgs
+    class FinishedEventArgs : EventArgs
     {
-        public MovedEventArgs(int i, int j)
+        public FinishedEventArgs()
         {
-            IndexFrom = i;
-            IndexTo = j;
+
         }
 
-        // данные, описывающие событие
-        public int IndexFrom { get; private set; } // индекс изначального положения элемента
-        public int IndexTo { get; private set; }   // индекс нового положения элемента
     }
 
-    //class StartedEventArgs : EventArgs
-    //{
-    //    public StartedEventArgs()
-    //    {
-            
-    //    }
-
-    //}
-
-    //class FinishedEventArgs : EventArgs
-    //{
-    //    public FinishedEventArgs()
-    //    {
-           
-    //    }
-
-    //}
-
-    delegate void CompareItems(object sender, CompareEventArgs args);
-    delegate void MovedItems(object sender, MovedEventArgs args);
+    delegate void CompareItems(object sender, CompareAndMovedEventArgs args);
+    delegate void MovedItems(object sender, MovedAndCompareEventArgs args);
 
     //delegate void Started(object sender, CompareEventArgs args);
     //delegate void Finished(object sender, MovedEventArgs args);
@@ -133,7 +108,7 @@ namespace _20180325_Events
         {
             if (_element != null)
             {
-                _element(this, new CompareEventArgs(a, b));
+                _element(this, new CompareAndMovedEventArgs(a, b));
             }
         }
 
@@ -141,7 +116,7 @@ namespace _20180325_Events
         {
             if (_item != null)
             {
-                _item(this, new MovedEventArgs(i, j));
+                _item(this, new MovedAndCompareEventArgs(i, j));
             }
         }
 
