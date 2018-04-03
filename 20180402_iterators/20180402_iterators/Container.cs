@@ -51,6 +51,10 @@ namespace _20180402_iterators
 
         // реализуем интерфейс IEnumerator
 
+        /// <summary>
+        /// перемещение на одну позицию вперед в контейнере элементов
+        /// </summary>
+        /// <returns></returns>
         public bool MoveNext()
         {
             if (_index == _items.Length - 1)
@@ -63,11 +67,17 @@ namespace _20180402_iterators
             return true;
         }
 
+        /// <summary>
+        /// перемещение в начало контейнера
+        /// </summary>
         public void Reset()
         {
             _index = -1;
         }
 
+        /// <summary>
+        /// текущий элемент в контейнере
+        /// </summary>
         public object Current
         {
             get
