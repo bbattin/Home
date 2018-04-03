@@ -53,29 +53,30 @@ namespace _20180402_iterators
 
         public bool MoveNext()
         {
-            if (_count == _items.Length - 1)
+            if (_index == _items.Length - 1)
             {
                 Reset();
                 return false;
             }
 
-            _count++;
+            _index++;
             return true;
         }
 
         public void Reset()
         {
-            _count = 0;
+            _index = -1;
         }
 
         public object Current
         {
             get
             {
-                return _items[_count];
+                return _items[_index];
             }
         }
 
+        private int _index = -1;
         private int _count = 0;
         private object[] _items;    // элементы контейнера
     }
