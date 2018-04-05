@@ -12,7 +12,7 @@ namespace _20180325_Events
         public override void Sort(int[] items)
         {
             int sortedRangeEnd = 0;
-
+            OnStarted();
             while (sortedRangeEnd < items.Length)
             {
                 int nextIndex = FindIndexOfSmallestFromIndex(items, sortedRangeEnd);
@@ -20,6 +20,7 @@ namespace _20180325_Events
 
                 sortedRangeEnd++;
             }
+            OnFinished();
         }
 
         private int FindIndexOfSmallestFromIndex(int[] items, int sortedRangeEnd)
@@ -29,6 +30,7 @@ namespace _20180325_Events
 
             for (int i = sortedRangeEnd + 1; i < items.Length; i++)
             {
+                ToCompare(sortedRangeEnd, i);
                 if (currentSmallest.CompareTo(items[i]) > 0)
                 {
                     currentSmallest = items[i];

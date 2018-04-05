@@ -23,14 +23,14 @@ namespace _20180325_Events
             if (left < right)
             {
                 int pivotIndex = _pivotRng.Next(left, right);
-                int newPivot = partition(items, left, right, pivotIndex);
+                int newPivot = Partition(items, left, right, pivotIndex);
 
                 Quicksort(items, left, newPivot - 1);
                 Quicksort(items, newPivot + 1, right);
             }
         }
 
-        private int partition(int[] items, int left, int right, int pivotIndex)
+        private int Partition(int[] items, int left, int right, int pivotIndex)
         {
             int pivotValue = items[pivotIndex];
 
@@ -40,6 +40,7 @@ namespace _20180325_Events
 
             for (int i = left; i < right; i++)
             {
+                ToCompare(i, pivotValue);
                 if (items[i].CompareTo(pivotValue) < 0)
                 {
                     Swap(items, i, storeIndex);
