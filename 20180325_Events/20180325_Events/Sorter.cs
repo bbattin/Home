@@ -11,8 +11,8 @@ namespace _20180325_Events
     delegate void CompareItems(object sender, MovedAndCompareEventArgs args);
     delegate void MovedItems(object sender, MovedAndCompareEventArgs args);
 
-    delegate void Started(object sender, StartedFinishedEventArgs args);
-    delegate void Finished(object sender, StartedFinishedEventArgs args);
+    delegate void StartedAct(object sender, StartedFinishedEventArgs args);
+    delegate void FinishedAct(object sender, StartedFinishedEventArgs args);
 
     class Sorter
     {
@@ -83,9 +83,29 @@ namespace _20180325_Events
             }
         }
 
-        public event EventHandler Started;
-        public event EventHandler Finished;
-
+        public event StartedAct Started
+        {
+            add
+            {
+                _start += value;
+            }
+            remove
+            {
+                _start -= value;
+            }
+        }
+       
+        public event FinishedAct Finished
+        {
+            add
+            {
+                _finish += value;
+            }
+            remove
+            {
+                _finish -= value;
+            }
+        }
 
         protected void ToCompare(int a, int b)
         {
@@ -121,8 +141,8 @@ namespace _20180325_Events
 
         CompareItems _element;
         MovedItems _item;
-        Started _start;
-        Finished _finish;
+        StartedAct _start;
+        FinishedAct _finish;
 
 
     }
