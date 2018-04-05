@@ -40,7 +40,11 @@ namespace _20180325_Events
             }
         }
 
-        
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
         public event CompareItems Compare
         {
             add

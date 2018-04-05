@@ -11,19 +11,47 @@ namespace _20180325_Events
     {
         static void Main(string[] args)
         {
-            int[] items = GetRandomArray(150);
-            
+            int[] items = GetRandomArray(300);
             PrintArray(items);
-            BubbleSort p = new BubbleSort();
-                                                
-            Analizer suscr = new Analizer(p);
+            int[] itemsRep = items;
+
+            BubbleSort a = new BubbleSort();
+            SortedAndReport(items, a);
             
-            p.Sort(items);
-            PrintArray(items);
-            suscr.Report();
+            InsertionSort b = new InsertionSort();
+            items = itemsRep;
+            SortedAndReport(items, b);
+
+            MergeSort c = new MergeSort();
+            items = itemsRep;
+            SortedAndReport(items, c);
+
+            SortByChoice d = new SortByChoice();
+            items = itemsRep;
+            SortedAndReport(items, d);
+
+            QuickSort e = new QuickSort();
+            items = itemsRep;
+            SortedAndReport(items, e);
 
             Console.ReadKey();
 
+        }
+
+        private static void SortedAndReport(int[] items, Sorter a)
+        {
+            PrintHeader(a);
+            Analizer suscr = new Analizer(a);
+            a.Sort(items);
+            PrintArray(items);
+            suscr.Report();
+        }
+
+        private static void PrintHeader(Sorter a)
+        {
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(a);
         }
 
         private static void PrintArray(int[] items)
@@ -45,7 +73,7 @@ namespace _20180325_Events
             int[] items = new int[countItems];
             for (int i = 0; i < countItems; i++)
             {
-                items[i] = rand.Next(0, 1000000);
+                items[i] = rand.Next(0, 100);
             }
             return items;
         }
