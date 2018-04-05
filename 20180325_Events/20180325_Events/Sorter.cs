@@ -7,29 +7,12 @@ using System.Threading.Tasks;
 namespace _20180325_Events
 {
 
-    class StartedEventArgs : EventArgs
-    {
-        public StartedEventArgs()
-        {
-
-        }
-
-    }
-
-    class FinishedEventArgs : EventArgs
-    {
-        public FinishedEventArgs()
-        {
-
-        }
-
-    }
-
-    delegate void CompareItems(object sender, CompareAndMovedEventArgs args);
+    
+    delegate void CompareItems(object sender, MovedAndCompareEventArgs args);
     delegate void MovedItems(object sender, MovedAndCompareEventArgs args);
 
-    //delegate void Started(object sender, CompareEventArgs args);
-    //delegate void Finished(object sender, MovedEventArgs args);
+    delegate void Started(object sender, StartedFinishedEventArgs args);
+    delegate void Finished(object sender, StartedFinishedEventArgs args);
 
     class Sorter
     {
@@ -108,7 +91,7 @@ namespace _20180325_Events
         {
             if (_element != null)
             {
-                _element(this, new CompareAndMovedEventArgs(a, b));
+                _element(this, new MovedAndCompareEventArgs(a, b));
             }
         }
 
@@ -122,24 +105,24 @@ namespace _20180325_Events
 
         protected void OnStarted()
         {
-            if (Started != null)
+            if (_start != null)
             {
-                Started(this, new EventArgs());
+                _start(this, new StartedFinishedEventArgs());
             }
         }
 
         protected void OnFinished()
         {
-            if (Started != null)
+            if (_finish != null)
             {
-                Finished(this, new EventArgs());
+                _finish(this, new StartedFinishedEventArgs());
             }
         }
 
         CompareItems _element;
         MovedItems _item;
-        //StartedEventArgs _start;
-        //FinishedEventArgs _finish;
+        Started _start;
+        Finished _finish;
 
 
     }

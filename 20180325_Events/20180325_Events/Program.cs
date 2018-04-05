@@ -30,7 +30,6 @@ namespace _20180325_Events
         
 
         
-
         Console.ReadKey();
 
         }
