@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace _20180325_Events
 {
     class QuickSort : Sorter
+        // быстрая сортировка
     {
         Random _pivotRng = new Random();
 

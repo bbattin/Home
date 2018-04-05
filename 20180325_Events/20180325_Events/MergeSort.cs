@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 namespace _20180325_Events
 {
     class MergeSort : Sorter
+    // сортировка слиянием
     {
         public override void Sort(int[] items)
         {
+            OnStarted();
             if (items.Length <= 1)
             {
                 return;
@@ -24,6 +26,7 @@ namespace _20180325_Events
             Sort(left);
             Sort(right);
             Merge(items, left, right);
+            OnFinished();
         }
 
         private void Merge(int[] items, int[] left, int[] right)
@@ -34,20 +37,26 @@ namespace _20180325_Events
             int remaining = left.Length + right.Length;
             while (remaining > 0)
             {
+                ToCompare(leftIndex, rightIndex);
                 if (leftIndex >= left.Length)
                 {
+                    ToMoved(targetIndex, rightIndex++);
                     items[targetIndex] = right[rightIndex++];
                 }
                 else if (rightIndex >= right.Length)
                 {
+                    ToMoved(targetIndex, leftIndex++);
                     items[targetIndex] = left[leftIndex++];
                 }
+                
                 else if (left[leftIndex].CompareTo(right[rightIndex]) < 0)
                 {
+                    ToMoved(targetIndex, leftIndex++);
                     items[targetIndex] = left[leftIndex++];
                 }
                 else
                 {
+                    ToMoved(targetIndex, rightIndex++);
                     items[targetIndex] = right[rightIndex++];
                 }
 
