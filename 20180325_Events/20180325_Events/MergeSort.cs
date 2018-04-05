@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace _20180325_Events
 {
-    class MergeSort
+    class MergeSort : Sorter
     {
-        public void Sort(int[] items)
+        public override void Sort(int[] items)
         {
             if (items.Length <= 1)
             {
