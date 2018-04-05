@@ -40,23 +40,23 @@ namespace _20180325_Events
                 ToCompare(leftIndex, rightIndex);
                 if (leftIndex >= left.Length)
                 {
-                    ToMoved(targetIndex, rightIndex++);
+                    ToMoved(targetIndex, rightIndex + 1);
                     items[targetIndex] = right[rightIndex++];
                 }
                 else if (rightIndex >= right.Length)
                 {
-                    ToMoved(targetIndex, leftIndex++);
+                    ToMoved(targetIndex, leftIndex + 1);
                     items[targetIndex] = left[leftIndex++];
                 }
                 
                 else if (left[leftIndex].CompareTo(right[rightIndex]) < 0)
                 {
-                    ToMoved(targetIndex, leftIndex++);
+                    ToMoved(targetIndex, leftIndex + 1);
                     items[targetIndex] = left[leftIndex++];
                 }
                 else
                 {
-                    ToMoved(targetIndex, rightIndex++);
+                    ToMoved(targetIndex, rightIndex + 1);
                     items[targetIndex] = right[rightIndex++];
                 }
 

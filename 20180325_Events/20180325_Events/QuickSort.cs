@@ -13,18 +13,20 @@ namespace _20180325_Events
 
         public override void Sort(int[] items)
         {
-            quicksort(items, 0, items.Length - 1);
+            OnStarted();
+            Quicksort(items, 0, items.Length - 1);
+            OnFinished();
         }
 
-        private void quicksort(int[] items, int left, int right)
+        private void Quicksort(int[] items, int left, int right)
         {
             if (left < right)
             {
                 int pivotIndex = _pivotRng.Next(left, right);
                 int newPivot = partition(items, left, right, pivotIndex);
 
-                quicksort(items, left, newPivot - 1);
-                quicksort(items, newPivot + 1, right);
+                Quicksort(items, left, newPivot - 1);
+                Quicksort(items, newPivot + 1, right);
             }
         }
 
