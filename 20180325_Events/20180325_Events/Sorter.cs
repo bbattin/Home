@@ -29,7 +29,7 @@ namespace _20180325_Events
         /// <param name="items"></param>
         /// <param name="left"></param>
         /// <param name="right"></param>
-        protected virtual void Swap(int[] items, int left, int right)
+        protected void Swap(int[] items, int left, int right)
         {
             if (left != right)
             {
