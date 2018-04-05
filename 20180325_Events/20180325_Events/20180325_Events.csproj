@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Analizer.cs" />
     <Compile Include="BubbleSort.cs" />
+    <Compile Include="InsertionSort.cs" />
     <Compile Include="MovedEventArgs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
