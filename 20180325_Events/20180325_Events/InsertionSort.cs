@@ -14,8 +14,9 @@ namespace _20180325_Events
         /// <param name="items"></param>
         public override void Sort(int[] items)
         {
+            
             int sortedRangeEndIndex = 1;
-
+            OnStarted();
             while (sortedRangeEndIndex < items.Length)
             {
                 if (items[sortedRangeEndIndex].CompareTo(items[sortedRangeEndIndex - 1]) < 0)
@@ -26,12 +27,14 @@ namespace _20180325_Events
 
                 sortedRangeEndIndex++;
             }
+            OnFinished();
         }
 
         private int FindInsertionIndex(int[] items, int valueToInsert)
         {
             for (int index = 0; index < items.Length; index++)
             {
+                ToCompare(index - 1, index);
                 if (items[index].CompareTo(valueToInsert) > 0)
                 {
                     return index;
@@ -54,6 +57,7 @@ namespace _20180325_Events
             //     Сдвинуть элементы влево на один.
             //  4: Записать temp на позицию в массиве + 1.
 
+            ToMoved(indexInsertingAt, indexInsertingFrom);
 
             // Шаг 1.
             int temp = itemArray[indexInsertingAt];

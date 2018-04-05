@@ -21,7 +21,7 @@ namespace _20180325_Events
                 swapped = false;
                 for (int i = 1; i<items.Length; i++)
                 {
-                    ToCompare(items[i - 1], items[i]);
+                    ToCompare(i - 1, i);
                     if (items[i - 1].CompareTo(items[i]) > 0)
                     {
                         Swap(items, i - 1, i);
