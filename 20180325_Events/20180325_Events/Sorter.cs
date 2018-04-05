@@ -7,39 +7,21 @@ using System.Threading.Tasks;
 namespace _20180325_Events
 {
 
-    
     delegate void CompareItems(object sender, MovedAndCompareEventArgs args);
     delegate void MovedItems(object sender, MovedAndCompareEventArgs args);
 
     delegate void StartedAct(object sender, StartedFinishedEventArgs args);
     delegate void FinishedAct(object sender, StartedFinishedEventArgs args);
 
-    class Sorter
+    abstract class Sorter
     {
 
         /// <summary>
-        /// пузырьковая сортировка
+        /// сортировка
         /// </summary>
         /// <param name="items"></param>
-        public void BubbleSort(int[] items)
-        {
-            bool swapped;
-            OnStarted();
-            do
-            {
-                swapped = false;
-                for (int i = 1; i < items.Length; i++)
-                {
-                    ToCompare(items[i - 1], items[i]);
-                    if (items[i - 1].CompareTo(items[i]) > 0)
-                    {
-                        Swap(items, i - 1, i);
-                        swapped = true;
-                    }
-                }
-            } while (swapped != false);
-            OnFinished();
-        }
+        public abstract void Sort(int[] items);
+       
 
         /// <summary>
         /// меняет значение в массиве по индексу
@@ -47,7 +29,7 @@ namespace _20180325_Events
         /// <param name="items"></param>
         /// <param name="left"></param>
         /// <param name="right"></param>
-        void Swap(int[] items, int left, int right)
+        protected virtual void Swap(int[] items, int left, int right)
         {
             if (left != right)
             {

@@ -14,23 +14,15 @@ namespace _20180325_Events
             int[] items = GetRandomArray(150);
             
             PrintArray(items);
-            Sorter p = new Sorter();
+            BubbleSort p = new BubbleSort();
                                                 
             Analizer suscr = new Analizer(p);
             
-            p.BubbleSort(items);
+            p.Sort(items);
             PrintArray(items);
             suscr.Report();
 
-            //p.Compare += OnNextCompare;
-            //p.BubbleSort(items);
-            //PrintArray(items);
-
             Console.ReadKey();
-        
-
-        
-        Console.ReadKey();
 
         }
 
@@ -58,11 +50,5 @@ namespace _20180325_Events
             return items;
         }
 
-        //// статический слушатель
-        //public static void OnNextCompare(object sender, CompareEventArgs args)
-        //{
-        //    Console.ForegroundColor = ConsoleColor.Green;
-        //    Console.WriteLine("static OnNextCompare(): args.FirstNumber = {0}, args.SecondNumber = {1}", args.FirstNumber, args.SecondNumber);
-        //}
     }
 }
