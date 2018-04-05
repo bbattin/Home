@@ -24,17 +24,17 @@ namespace _20180325_Events
         public void OnNextCompare(object sender, MovedAndCompareEventArgs args)
         {
             CompareCounter++;
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            //Console.Write(".");
-            Console.WriteLine("Compare: first number - {0}, second number = {1}", args.IndexFrom, args.IndexTo);
+            //Console.ForegroundColor = ConsoleColor.DarkGreen;
+            ////Console.Write(".");
+            //Console.WriteLine("Compare: first number - {0}, second number = {1}", args.IndexFrom, args.IndexTo);
         }
 
         public void OnNextMoved(object sender, MovedAndCompareEventArgs args)
         {
             MovedCounter++;
-            Console.ForegroundColor = ConsoleColor.Gray;
-            //Console.Write(".");
-            Console.WriteLine("Moved: index from = {0}, index to = {1}", args.IndexFrom, args.IndexTo);
+            //Console.ForegroundColor = ConsoleColor.Gray;
+            ////Console.Write(".");
+            //Console.WriteLine("Moved: index from = {0}, index to = {1}", args.IndexFrom, args.IndexTo);
         }
 
         public void Report()
