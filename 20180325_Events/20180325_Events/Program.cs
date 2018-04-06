@@ -13,25 +13,26 @@ namespace _20180325_Events
         {
             int[] items = GetRandomArray(300);
             PrintArray(items);
-            int[] itemsRep = items;
+            int[] itemsRep = new int[300];
+            Array.Copy(items, itemsRep, items.Length);
 
             BubbleSort a = new BubbleSort();
             SortedAndReport(items, a);
             
             InsertionSort b = new InsertionSort();
-            items = itemsRep;
+            Array.Copy(itemsRep, items, items.Length);
             SortedAndReport(items, b);
 
             MergeSort c = new MergeSort();
-            items = itemsRep;
+            Array.Copy(itemsRep, items, items.Length);
             SortedAndReport(items, c);
 
             SortByChoice d = new SortByChoice();
-            items = itemsRep;
+            Array.Copy(itemsRep, items, items.Length);
             SortedAndReport(items, d);
 
             QuickSort e = new QuickSort();
-            items = itemsRep;
+            Array.Copy(itemsRep, items, items.Length);
             SortedAndReport(items, e);
 
             Console.ReadKey();
