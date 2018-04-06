@@ -13,26 +13,21 @@ namespace _20180325_Events
         {
             int[] items = GetRandomArray(300);
             PrintArray(items);
-            int[] itemsRep = new int[300];
-            Array.Copy(items, itemsRep, items.Length);
+            
 
             BubbleSort a = new BubbleSort();
             SortedAndReport(items, a);
             
             InsertionSort b = new InsertionSort();
-            Array.Copy(itemsRep, items, items.Length);
             SortedAndReport(items, b);
 
             MergeSort c = new MergeSort();
-            Array.Copy(itemsRep, items, items.Length);
             SortedAndReport(items, c);
 
             SortByChoice d = new SortByChoice();
-            Array.Copy(itemsRep, items, items.Length);
             SortedAndReport(items, d);
 
             QuickSort e = new QuickSort();
-            Array.Copy(itemsRep, items, items.Length);
             SortedAndReport(items, e);
 
             Console.ReadKey();
@@ -41,10 +36,12 @@ namespace _20180325_Events
 
         private static void SortedAndReport(int[] items, Sorter a)
         {
+            int[] itemsRep = new int[300];
+            Array.Copy(items, itemsRep, items.Length);
             PrintHeader(a);
             Analizer suscr = new Analizer(a);
-            a.Sort(items);
-            PrintArray(items);
+            a.Sort(itemsRep);
+            PrintArray(itemsRep);
             suscr.Report();
         }
 
