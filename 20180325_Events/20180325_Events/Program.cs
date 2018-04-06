@@ -11,24 +11,18 @@ namespace _20180325_Events
     {
         static void Main(string[] args)
         {
-            int[] items = GetRandomArray(300);
+            int[] items = GetRandomArray(500);
             PrintArray(items);
             
+            SortedAndReport(items, new BubbleSort());
 
-            BubbleSort a = new BubbleSort();
-            SortedAndReport(items, a);
-            
-            InsertionSort b = new InsertionSort();
-            SortedAndReport(items, b);
+            SortedAndReport(items, new InsertionSort());
 
-            MergeSort c = new MergeSort();
-            SortedAndReport(items, c);
+            SortedAndReport(items, new MergeSort());
 
-            SortByChoice d = new SortByChoice();
-            SortedAndReport(items, d);
+            SortedAndReport(items, new SortByChoice());
 
-            QuickSort e = new QuickSort();
-            SortedAndReport(items, e);
+            SortedAndReport(items, new QuickSort());
 
             Console.ReadKey();
 
@@ -36,7 +30,7 @@ namespace _20180325_Events
 
         private static void SortedAndReport(int[] items, Sorter a)
         {
-            int[] itemsRep = new int[300];
+            int[] itemsRep = new int[items.Length];
             Array.Copy(items, itemsRep, items.Length);
             PrintHeader(a);
             Analizer suscr = new Analizer(a);
