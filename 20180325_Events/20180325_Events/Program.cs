@@ -30,8 +30,9 @@ namespace _20180325_Events
 
         private static void SortedAndReport(int[] items, Sorter a)
         {
-            int[] itemsRep = new int[items.Length];
-            Array.Copy(items, itemsRep, items.Length);
+            //int[] itemsRep = new int[items.Length];
+            int[] itemsRep = (int[])items.Clone();
+            //Array.Copy(items, itemsRep, items.Length);
             PrintHeader(a);
             Analizer suscr = new Analizer(a);
             a.Sort(itemsRep);
