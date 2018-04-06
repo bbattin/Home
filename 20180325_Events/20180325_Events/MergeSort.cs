@@ -12,6 +12,14 @@ namespace _20180325_Events
         public override void Sort(int[] items)
         {
             OnStarted();
+            RecurseSort(items);
+            
+            OnFinished();
+        }
+
+        public void RecurseSort(int[] items)
+        {
+            
             if (items.Length <= 1)
             {
                 return;
@@ -23,10 +31,10 @@ namespace _20180325_Events
             int[] right = new int[rightSize];
             Array.Copy(items, 0, left, 0, leftSize);
             Array.Copy(items, leftSize, right, 0, rightSize);
-            Sort(left);
-            Sort(right);
+            RecurseSort(left);
+            RecurseSort(right);
             Merge(items, left, right);
-            OnFinished();
+           
         }
 
         private void Merge(int[] items, int[] left, int[] right)
