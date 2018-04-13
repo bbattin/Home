@@ -22,14 +22,14 @@ namespace SortedList
             UserInfo.Add("Elhm", "12345");
             UserInfo.Add("Lamar", "12345");
 
-
-
             // Коллекция ключей
             ICollection<string> keys = UserInfo.Keys;
 
             // Теперь используем ключи, для получения значений
             foreach (string s in keys)
+            {
                 Console.WriteLine("User: {0}, Password: {1}", s, UserInfo[s]);
+            }
 
             Console.ReadLine();
         }

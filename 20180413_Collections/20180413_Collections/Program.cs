@@ -24,8 +24,9 @@ namespace LinkedList
 
             LinkedList<Person> persons = new LinkedList<Person>();
 
-            // добавляем persona в список и получим объект LinkedListNode<Person>, в котором хранится имя Tom
+            // добавляем person в список и получим объект LinkedListNode<Person>, в котором хранится имя Tom
             LinkedListNode<Person> tom = persons.AddLast(new Person() { Name = "Tom" });
+
             persons.AddLast(new Person() { Name = "John" });
             persons.AddFirst(new Person() { Name = "Bill" });
 
