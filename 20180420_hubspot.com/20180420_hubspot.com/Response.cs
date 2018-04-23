@@ -25,7 +25,7 @@ namespace _20180420_hubspot.com
         //public string ProfileToken { get; set; }
 
         [JsonProperty(PropertyName = "properties")]
-        public List<Property> Properties { get; set; }
+        public Property Properties { get; set; }
 
         //public List<object> FormSubmissions { get; set; }
         //public List<IdentityProfile> IdentityProfiles { get; set; }

@@ -24,21 +24,25 @@ namespace _20180420_hubspot.com
 
     class Firstname
     {
+        [JsonProperty(PropertyName = "value")]
         public string Value { get; set; }
     }
 
     class Lastmodifieddate
     {
+        [JsonProperty(PropertyName = "value")]
         public string Value { get; set; }
     }
 
     class Company
     {
+        [JsonProperty(PropertyName = "value")]
         public string Value { get; set; }
     }
 
     class Lastname
     {
+        [JsonProperty(PropertyName = "value")]
         public string Value { get; set; }
     }
 }
