@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AllContacts.cs" />
+    <Compile Include="AssociatedCompany.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="IdentityProfile.cs" />
     <Compile Include="Program.cs" />

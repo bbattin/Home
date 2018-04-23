@@ -22,29 +22,8 @@ namespace _20180420_hubspot.com
         public string Lifecyclestage { get; set; }
 
         //[JsonProperty(PropertyName = "company")]
-        public string Associated_company { get; set; }
-
-        //[JsonProperty(PropertyName = "portal-id?")]
-        public int Company_id { get; set; }
-
-        //[JsonProperty(PropertyName = "title?")]
-        public string Name { get; set; }
-
-        //[JsonProperty(PropertyName = "page-url?")]
-        public string Website { get; set; }
-
-        //[JsonProperty(PropertyName = "?")]
-        public string City { get; set; }
-
-        //[JsonProperty(PropertyName = "?")]
-        public string State { get; set; }
-
-        //[JsonProperty(PropertyName = "?")]
-        public string Zip { get; set; }
-
-        //[JsonProperty(PropertyName = "?")]
-        public string Phone { get; set; }
-
+        public AssociatedCompany AssociatedCompany { get; set; }
+                
         public override string ToString()
         {
             return base.ToString();
