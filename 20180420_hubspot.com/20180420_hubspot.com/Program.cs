@@ -14,7 +14,7 @@ namespace _20180420_hubspot.com
         static void Main(string[] args)
         {
             string hapikey = "demo";
-            string countContacts = UI.GetCountContacts();
+            string countContacts = "10";
             string timeOffset = "1524480259611";
             string vidOffset = "5875024";
             string url = "https://api.hubapi.com/contacts/v1/lists/recently_updated/contacts/recent?hapikey=" + hapikey + "&count=" + countContacts + "&timeOffset=" + timeOffset + "&vidOffset=" + vidOffset;
@@ -29,7 +29,7 @@ namespace _20180420_hubspot.com
             ResponseJson responseJson = JsonConvert.DeserializeObject<ResponseJson>(result);
             Console.WriteLine();
             
-            Console.WriteLine(responseJson.Responses);
+            Console.WriteLine(responseJson.Responses.Count);
 
             Console.ReadKey();
         }
