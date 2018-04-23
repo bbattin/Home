@@ -9,28 +9,28 @@ namespace _20180420_hubspot.com
 {
     class Contact
     {
-        [JsonProperty(PropertyName = "vid")]
+        //[JsonProperty(PropertyName = "vid")]
         public int Vid { get; set; }
 
-        [JsonProperty(PropertyName = "firstname")]
+        //[JsonProperty(PropertyName = "firstname")]
         public string Firstname { get; set; }
 
-        [JsonProperty(PropertyName = "lastname")]
+        //[JsonProperty(PropertyName = "lastname")]
         public string Lastname { get; set; }
 
-        //[JsonProperty(PropertyName = "?")]
+        //[JsonProperty(PropertyName = "lastmodifieddate?")]
         public string Lifecyclestage { get; set; }
 
-        [JsonProperty(PropertyName = "company")]
+        //[JsonProperty(PropertyName = "company")]
         public string Associated_company { get; set; }
 
-        [JsonProperty(PropertyName = "portal-id")]
+        //[JsonProperty(PropertyName = "portal-id?")]
         public int Company_id { get; set; }
 
-        [JsonProperty(PropertyName = "title")]
+        //[JsonProperty(PropertyName = "title?")]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "page-url")]
+        //[JsonProperty(PropertyName = "page-url?")]
         public string Website { get; set; }
 
         //[JsonProperty(PropertyName = "?")]

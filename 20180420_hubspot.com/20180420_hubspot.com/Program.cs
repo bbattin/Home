@@ -13,7 +13,7 @@ namespace _20180420_hubspot.com
     {
         static void Main(string[] args)
         {
-            string hapikey = UI.GetHapikey();
+            string hapikey = "demo";
             string countContacts = UI.GetCountContacts();
             string timeOffset = "1524480259611";
             string vidOffset = "5875024";
@@ -27,6 +27,9 @@ namespace _20180420_hubspot.com
             //Console.WriteLine(contact.Firstname);
 
             ResponseJson responseJson = JsonConvert.DeserializeObject<ResponseJson>(result);
+            Console.WriteLine();
+            
+            Console.WriteLine(responseJson.Responses);
 
             Console.ReadKey();
         }
