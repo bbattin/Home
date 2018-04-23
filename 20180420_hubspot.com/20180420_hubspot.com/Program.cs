@@ -25,6 +25,9 @@ namespace _20180420_hubspot.com
             //Contact contact = JsonConvert.DeserializeObject<Contact>("{\"firstname\":\"NAME\"}");
             //Console.WriteLine(contact.Firstname, contact.Website, contact.Name);
             //Console.WriteLine(contact.Firstname);
+
+            ResponseJson responseJson = JsonConvert.DeserializeObject<ResponseJson>(result);
+
             Console.ReadKey();
         }
 
