@@ -11,11 +11,15 @@ namespace _20180420_hubspot.com
     {
         static void Main(string[] args)
         {
-            string url = "https://api.hubapi.com/contacts/v1/lists/recently_updated/contacts/recent?hapikey=demo&count=2";
+            string hapikey = UI.GetHapikey();
+            string countContacts = UI.GetCountContacts();
+            string url = "https://api.hubapi.com/contacts/v1/lists/recently_updated/contacts/recent?hapikey=" + hapikey + "&count=" + countContacts;
             WebClient client = new WebClient();
             var result = client.DownloadString(url);
             Console.Write(result);
             Console.ReadKey();
         }
+
+        
     }
 }
