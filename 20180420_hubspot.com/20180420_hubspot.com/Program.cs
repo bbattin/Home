@@ -15,12 +15,16 @@ namespace _20180420_hubspot.com
         {
             string hapikey = UI.GetHapikey();
             string countContacts = UI.GetCountContacts();
-            string url = "https://api.hubapi.com/contacts/v1/lists/recently_updated/contacts/recent?hapikey=" + hapikey + "&count=" + countContacts;
+            string timeOffset = "1524480259611";
+            string vidOffset = "5875024";
+            string url = "https://api.hubapi.com/contacts/v1/lists/recently_updated/contacts/recent?hapikey=" + hapikey + "&count=" + countContacts + "&timeOffset=" + timeOffset + "&vidOffset=" + vidOffset;
             WebClient client = new WebClient();
-            var result = client.DownloadString(url);
+            string result = client.DownloadString(url);
             Console.Write(result);
-            var contact = JsonConvert.DeserializeObject<Contact>(result);
-            Console.WriteLine(contact.Firstname, contact.Website, contact.Name);
+            //var contact = JsonConvert.DeserializeObject<Contact>(result);
+            //Contact contact = JsonConvert.DeserializeObject<Contact>("{\"firstname\":\"NAME\"}");
+            //Console.WriteLine(contact.Firstname, contact.Website, contact.Name);
+            //Console.WriteLine(contact.Firstname);
             Console.ReadKey();
         }
 
