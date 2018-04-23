@@ -1,9 +1,11 @@
 ﻿using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Net;
 using System.Threading.Tasks;
+
 
 namespace _20180420_hubspot.com
 {
@@ -17,9 +19,10 @@ namespace _20180420_hubspot.com
             WebClient client = new WebClient();
             var result = client.DownloadString(url);
             Console.Write(result);
+            var contact = JsonConvert.DeserializeObject<Contact>(result);
+            Console.WriteLine(contact.Firstname, contact.Website, contact.Name);
             Console.ReadKey();
         }
 
-        
     }
 }
