@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.Threading.Tasks;
-
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
 
 namespace _20180420_hubspot.com
 {
@@ -21,17 +22,34 @@ namespace _20180420_hubspot.com
             WebClient client = new WebClient();
             string result = client.DownloadString(url);
             Console.Write(result);
-            //var contact = JsonConvert.DeserializeObject<Contact>(result);
-            //Contact contact = JsonConvert.DeserializeObject<Contact>("{\"firstname\":\"NAME\"}");
-            //Console.WriteLine(contact.Firstname, contact.Website, contact.Name);
-            //Console.WriteLine(contact.Firstname);
-
+        
             ResponseJson responseJson = JsonConvert.DeserializeObject<ResponseJson>(result);
             Console.WriteLine();
             
             Console.WriteLine(responseJson.Responses.Count);
 
             Console.ReadKey();
+        }
+
+        private void writingInExcMethod()
+        {
+            try
+            {
+                Excel.Application ObjExcel = new Excel.Application();
+                Excel.Workbook ObjWorkBook;
+                Excel.Worksheet ObjWorkSheet;
+                ObjWorkBook = ObjExcel.Workbooks.Add(System.Reflection.Missing.Value);
+                ObjWorkSheet = (Excel.Worksheet)ObjWorkBook.Sheets[1];
+                ObjWorkSheet.Cells[3, 1] = "51";
+                ObjWorkBook.SaveAs("log.xlsx", Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Excel.XlSaveAsAccessMode.xlExclusive,
+                Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+                
+                ObjExcel.Quit();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine("Ошибка при составлении лога\n" + exc.Message);
+            }
         }
 
     }
