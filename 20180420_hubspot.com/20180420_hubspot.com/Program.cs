@@ -40,7 +40,7 @@ namespace _20180420_hubspot.com
                 Excel.Application ObjExcel = new Excel.Application();
                 Excel.Workbook ObjWorkBook;
                 Excel.Worksheet ObjWorkSheet;
-                ObjWorkBook = ObjExcel.Workbooks.Add(System.Reflection.Missing.Value);
+                ObjWorkBook = ObjExcel.Workbooks.Add(Missing.Value);
                 ObjWorkSheet = (Excel.Worksheet)ObjWorkBook.Sheets[1];
                 ObjWorkSheet.Cells[3, 1] = "51";
                 ObjWorkBook.SaveAs("log.xlsx", Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Excel.XlSaveAsAccessMode.xlExclusive,
