@@ -28,10 +28,12 @@ namespace _20180420_hubspot.com
             
             Console.WriteLine(responseJson.Responses.Count);
 
+            writingInExcMethod();
+
             Console.ReadKey();
         }
 
-        private void writingInExcMethod()
+        private static void writingInExcMethod()
         {
             try
             {
