@@ -31,6 +31,11 @@ namespace _20180420_hubspot.com
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// создание списка контактов
+        /// </summary>
+        /// <param name="responseJson"></param>
+        /// <returns></returns>
         private static List<Contact> CreateListContacts(ResponseJson responseJson)
         {
             List<Contact> contacts = new List<Contact>();
@@ -39,41 +44,38 @@ namespace _20180420_hubspot.com
             {
                 a.Firstname = p.Properties.Firstname.Value;
                 a.Lastname = p.Properties.Lastname.Value;
-                a.Vid = p.Vid;
                 a.Lifecyclestage = p.Properties.Lastmodifieddate.Value;
                 a.Company = p.Properties.Company.Value;
                 a.Vid = p.Vid;
+                a.PortalId = p.PortalId;
                 contacts.Add(a);
             }
             return contacts;
         }
 
+        /// <summary>
+        /// создание CSV файла со списком контактов
+        /// </summary>
+        /// <param name="contacts"></param>
         private static void CreateCSVFile(List<Contact> contacts)
         {
-            StreamWriter csv = new StreamWriter("test.csv", true, Encoding.GetEncoding(1251));   // Win-кодировка
+            StreamWriter csv = new StreamWriter("contacts.csv", true, Encoding.GetEncoding(1251));   // Win-кодировка
             csv.WriteLine("Vid; Firstname; Lastname; Lastmodifieddate; Company; PortalId");      // заголовок
 
 
             foreach (Contact p in contacts)
             {
-                csv.WriteLine(ChekAndGetParametr(p.Vid) + ";" + ChekAndGetParametr(p.Firstname) + ";" 
-                    + ChekAndGetParametr(p.Lastname) + ";" + ChekAndGetParametr(p.Lifecyclestage) 
-                    + ";" + ChekAndGetParametr(p.Company) + ";" + ChekAndGetParametr(p.PortalId));   
+                csv.WriteLine("{0};{1};{2};{3};{4};{5}", p.Vid, p.Firstname, p.Lastname, p.Lifecyclestage, p.Company, p.PortalId);   
             }
 
             csv.Close();
         }
 
-        private static string ChekAndGetParametr(object a)
-        {
-            if (a == null)
-            {
-                a.ToString();
-                a = "";
-            }
-            return a.ToString();
-        }
-
+        /// <summary>
+        /// отправка GET запроса и получение джейсона со списком контактов
+        /// </summary>
+        /// <param name="timeOffset"></param>
+        /// <returns></returns>
         private static string GetJsonWithContacts(string timeOffset)
         {
             string hapikey = "demo";

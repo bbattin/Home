@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="AssociatedCompany.cs" />
     <Compile Include="Contact.cs" />
-    <Compile Include="IdentityProfile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Property.cs" />
