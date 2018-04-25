@@ -16,7 +16,7 @@ namespace _20180420_hubspot.com
         static void Main(string[] args)
         {
             string timeOffset = "1524480259611";
-            string result = GetContactList(timeOffset);
+            string result = GetJsonWithContacts(timeOffset);
             Console.Write(result);
 
             ResponseJson responseJson = JsonConvert.DeserializeObject<ResponseJson>(result);
@@ -24,22 +24,41 @@ namespace _20180420_hubspot.com
 
             Console.WriteLine(responseJson.Responses.Count);
 
-            CreateCSVFile(responseJson);
+            List<Contact> contacts = CreateListContacts(responseJson);
+
+            CreateCSVFile(contacts);
 
             Console.ReadKey();
         }
 
-        private static void CreateCSVFile(ResponseJson responseJson)
+        private static List<Contact> CreateListContacts(ResponseJson responseJson)
+        {
+            List<Contact> contacts = new List<Contact>();
+            Contact a = new Contact();
+            foreach (Response p in responseJson.Responses)
+            {
+                a.Firstname = p.Properties.Firstname.Value;
+                a.Lastname = p.Properties.Lastname.Value;
+                a.Vid = p.Vid;
+                a.Lifecyclestage = p.Properties.Lastmodifieddate.Value;
+                a.Company = p.Properties.Company.Value;
+                a.Vid = p.Vid;
+                contacts.Add(a);
+            }
+            return contacts;
+        }
+
+        private static void CreateCSVFile(List<Contact> contacts)
         {
             StreamWriter csv = new StreamWriter("test.csv", true, Encoding.GetEncoding(1251));   // Win-кодировка
             csv.WriteLine("Vid; Firstname; Lastname; Lastmodifieddate; Company; PortalId");      // заголовок
 
 
-            foreach (Response p in responseJson.Responses)
+            foreach (Contact p in contacts)
             {
-                csv.WriteLine(ChekAndGetParametr(p.Vid) + ";" + ChekAndGetParametr(p.Properties.Firstname) + ";" 
-                    + ChekAndGetParametr(p.Properties.Lastname) + ";" + ChekAndGetParametr(p.Properties.Lastmodifieddate) 
-                    + ";" + ChekAndGetParametr(p.Properties.Company) + ";" + ChekAndGetParametr(p.PortalId));   
+                csv.WriteLine(ChekAndGetParametr(p.Vid) + ";" + ChekAndGetParametr(p.Firstname) + ";" 
+                    + ChekAndGetParametr(p.Lastname) + ";" + ChekAndGetParametr(p.Lifecyclestage) 
+                    + ";" + ChekAndGetParametr(p.Company) + ";" + ChekAndGetParametr(p.PortalId));   
             }
 
             csv.Close();
@@ -49,13 +68,13 @@ namespace _20180420_hubspot.com
         {
             if (a == null)
             {
-                //a.ToString();
+                a.ToString();
                 a = "";
             }
             return a.ToString();
         }
 
-        private static string GetContactList(string timeOffset)
+        private static string GetJsonWithContacts(string timeOffset)
         {
             string hapikey = "demo";
             string countContacts = "10";

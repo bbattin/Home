@@ -9,24 +9,19 @@ namespace _20180420_hubspot.com
 {
     class Contact
     {
-        //[JsonProperty(PropertyName = "vid")]
         public int Vid { get; set; }
-
-        //[JsonProperty(PropertyName = "firstname")]
+        
         public string Firstname { get; set; }
-
-        //[JsonProperty(PropertyName = "lastname")]
+        
         public string Lastname { get; set; }
 
-        //[JsonProperty(PropertyName = "lastmodifieddate?")]
         public string Lifecyclestage { get; set; }
 
-        //[JsonProperty(PropertyName = "company")]
-        public AssociatedCompany AssociatedCompany { get; set; }
+        public string Company { get; set; }
+
+        public string PortalId { get; set; }
+
+        //public AssociatedCompany AssociatedCompany { get; set; }
                 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }

@@ -10,39 +10,22 @@ namespace _20180420_hubspot.com
     class Property
     {
         [JsonProperty(PropertyName = "firstname")]
-        public Firstname Firstname { get; set; }
+        public ValueJson Firstname { get; set; }
 
         [JsonProperty(PropertyName = "lastmodifieddate")]
-        public Lastmodifieddate Lastmodifieddate { get; set; }
+        public ValueJson Lastmodifieddate { get; set; }
 
         [JsonProperty(PropertyName = "company")]
-        public Company Company { get; set; }
+        public ValueJson Company { get; set; }
 
         [JsonProperty(PropertyName = "lastname")]
-        public Lastname Lastname { get; set; }
+        public ValueJson Lastname { get; set; }
     }
 
-    class Firstname
+    class ValueJson
     {
         [JsonProperty(PropertyName = "value")]
         public string Value { get; set; }
     }
 
-    class Lastmodifieddate
-    {
-        [JsonProperty(PropertyName = "value")]
-        public string Value { get; set; }
-    }
-
-    class Company
-    {
-        [JsonProperty(PropertyName = "value")]
-        public string Value { get; set; }
-    }
-
-    class Lastname
-    {
-        [JsonProperty(PropertyName = "value")]
-        public string Value { get; set; }
-    }
 }
