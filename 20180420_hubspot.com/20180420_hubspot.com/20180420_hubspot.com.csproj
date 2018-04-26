@@ -57,7 +57,6 @@
     <Compile Include="Property.cs" />
     <Compile Include="Response.cs" />
     <Compile Include="ResponseJson.cs" />
-    <Compile Include="UI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

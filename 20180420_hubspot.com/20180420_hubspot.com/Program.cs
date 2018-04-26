@@ -15,7 +15,7 @@ namespace _20180420_hubspot.com
     {
         static void Main(string[] args)
         {
-            string timeOffset = "1524480259611";
+            string timeOffset = "1524720438397";
             string result = GetJsonWithContacts(timeOffset);
             Console.Write(result);
 
