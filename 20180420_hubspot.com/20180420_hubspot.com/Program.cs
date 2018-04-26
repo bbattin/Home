@@ -15,7 +15,7 @@ namespace _20180420_hubspot.com
     {
         static void Main(string[] args)
         {
-            string timeOffset = "1524720438397";
+            string timeOffset = "1524735957939";
             string result = GetJsonWithContacts(timeOffset);
             Console.Write(result);
 
@@ -39,9 +39,10 @@ namespace _20180420_hubspot.com
         private static List<Contact> CreateListContacts(ResponseJson responseJson)
         {
             List<Contact> contacts = new List<Contact>();
-            Contact a = new Contact();
+            
             foreach (Response p in responseJson.Responses)
             {
+                Contact a = new Contact();
                 a.Firstname = p.Properties.Firstname.Value;
                 a.Lastname = p.Properties.Lastname.Value;
                 a.Lifecyclestage = p.Properties.Lastmodifieddate.Value;
