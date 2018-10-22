@@ -241,10 +241,13 @@ namespace _2018._02._28_Live
        /// </summary>
         public void Run()
         {
+            
             for (int i = 0; i < DEFAULTNUMITERATIONS; i++)
             {
+               
                 if (_numPredators > 0 && _numPrey > 0)
                 {
+
                     for (int j = 0; j < _numRows; j++)
                     {
                         for (int k = 0; k < _numCols; k++)
@@ -255,9 +258,12 @@ namespace _2018._02._28_Live
                     DisplayStats(i);
                     DisplayCells();
                     DisplayBorder();
+                    //System.Threading.Thread.Sleep(1000);
                     Console.ReadKey();
                     Console.Clear();
+                    
                 }
+                
             }
             Console.WriteLine("End of simulation");
             Console.ReadKey();
