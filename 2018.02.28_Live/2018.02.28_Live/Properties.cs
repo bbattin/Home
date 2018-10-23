@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2018._02._28_Live
 {
-    class UTK
+    enum Properties
     {
-        string name;
-        Properties property;
-        int act;
     }
 }
